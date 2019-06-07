@@ -1,0 +1,50 @@
+.signup-container{
+    display: flex;
+    flex-flow: column;
+
+    .inputs-container{
+        display: flex;
+        flex-flow: column nowrap;
+
+
+        .input{
+            display: flex;
+            flex-flow: column nowrap;
+            width: 35%;
+
+            input{
+                border: none;
+                border-bottom: 1px solid black;
+                margin: 1rem 0;
+            }
+            input:focus {
+                outline: none;
+            }
+
+            span{
+                opacity: 0.5
+            }
+        }
+    }
+    .btn-add{
+        margin: 1rem 0;
+        
+        button{
+            color: #ffff;
+            border: none;
+            background-color: rgb(99, 233, 166);
+            -webkit-border-radius: 150px;
+            -moz-border-radius: 150px;
+            border-radius: 150px;
+            height: 2.5rem;
+            width: 6rem;
+            
+        }
+        button:focus {
+            outline: none;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+    }
+}
