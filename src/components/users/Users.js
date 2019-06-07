@@ -7,8 +7,6 @@ class Users extends Component {
 
 
     render() {
-        console.log(this.props.data.ID)
-        console.log(this.props)
         return (
             <tr>
                 <td>{this.props.data.NAME}</td>
