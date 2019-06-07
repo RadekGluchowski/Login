@@ -59,6 +59,12 @@
              }
              button:hover {
                  cursor: pointer;
+                 opacity: 0.8;
+             }
+             button:disabled{
+                opacity: 0.5;
+                cursor: none;
+
              }
         }
     }
