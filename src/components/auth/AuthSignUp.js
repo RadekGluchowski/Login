@@ -72,6 +72,7 @@ export default class AuthSignUp extends Component {
                                         id="nickname"
                                         onChange={(e) => this.onChangeHandler(e)}
                                         style={{ borderBottom: this.state.validNickname === null ? "1px solid red" : "1px solid black" }}
+                                        placeholder="Nickname example: Cat, Dog"
                                     />
                                     <p> {this.state.formErrors.nickname} </p>
                                 </div>
@@ -84,6 +85,7 @@ export default class AuthSignUp extends Component {
                                         id="email"
                                         onChange={(e) => this.onChangeHandler(e)}
                                         style={{ borderBottom: this.state.validEmail === null ? "1px solid red" : "1px solid black" }}
+                                        placeholder="Email example: Statham@gmail.com"
                                     />
                                     <p> {this.state.formErrors.email}</p>
                                 </div>
@@ -96,6 +98,7 @@ export default class AuthSignUp extends Component {
                                         id="ip"
                                         onChange={(e) => this.onChangeHandler(e)}
                                         style={{ borderBottom: this.state.validIp === null ? "1px solid red" : "1px solid black" }}
+                                        placeholder="Ip example: 52.12.111.251"
                                     />
                                     <p> {this.state.formErrors.ip}</p>
                                 </div>
