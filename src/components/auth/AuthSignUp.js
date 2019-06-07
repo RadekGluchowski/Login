@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
-import './AuthSignUp.scss'
+import React, { Component } from 'react';
+import { saveUserToStore } from '../../store/Actions/loginAppActions'
+import connect from 'react-redux/es/connect/connect';
+import './AuthSignUp.scss';
 
-export default class AuthSignUp extends Component {
+
+class AuthSignUp extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            id: 1,
             nickname: "",
             email: "",
             ip: "",
@@ -32,7 +36,7 @@ export default class AuthSignUp extends Component {
 
         switch (fieldName) {
             case 'nickname':
-                validNickname = value.match(/[A-Z][a-zA-Z][^#&<>\"~;$^%{}?]{1,20}$/);
+                validNickname = value.match(/[A-Z][a-zA-Z][^#&<>"~;$^%{}?]{1,20}$/);
                 fieldValidationErrors.nickname = validNickname ? true : false;
                 break;
             case 'email':
@@ -65,15 +69,19 @@ export default class AuthSignUp extends Component {
             btnDisabled: this.state.formErrors.nickname && this.state.formErrors.email && this.state.formErrors.ip === true ? false : true
         })
 
-        console.log(this.state.formErrors.nickname)
-        console.log(this.state.formErrors.email)
-        console.log(this.state.formErrors.ip)
+    }
+
+    saveUser = (e) => {
+        this.props.saveUserToStore({ID: this.state.id, NAME: this.state.nickname, EMAIL: this.state.email, IP: this.state.ip})
+
+        this.setState({
+            id: this.state.id +1,
+        })
     }
 
 
     render() {
 
-        console.log(this.state.btnDisabled)
         return (
             <div className='signup-container'>
                 <div className='login-form' >
@@ -120,9 +128,17 @@ export default class AuthSignUp extends Component {
                             </div>
                         </form>
                     </div>
-                    <div className='btn-add'>  <button disabled={this.state.btnDisabled}  > Add user </button> </div>
+                    <div className='btn-add'>  <button disabled={this.state.btnDisabled} onClick={this.saveUser}> Add user </button> </div>
                 </div>
             </div>
         )
     }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+    saveUserToStore: (payload) => dispatch(saveUserToStore(payload))
+})
+
+export default connect(
+    null, mapDispatchToProps
+)(AuthSignUp)
