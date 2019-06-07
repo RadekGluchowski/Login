@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './AuthSignUp.scss'
-import FormErrors from './FormErrors'
 
 export default class AuthSignUp extends Component {
     constructor(props) {
@@ -33,15 +32,15 @@ export default class AuthSignUp extends Component {
         switch (fieldName) {
             case 'nickname':
                 validNickname = value.match(/[A-Z][a-zA-Z][^#&<>\"~;$^%{}?]{1,20}$/);
-                fieldValidationErrors.nickname = validNickname ? '' : ' is invalid';
+                fieldValidationErrors.nickname = validNickname ? '' : 'Nickname wrong format';
                 break;
             case 'email':
                 validEmail = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-                fieldValidationErrors.email = validEmail ? '' : 'is invalid';
+                fieldValidationErrors.email = validEmail ? '' : 'Email wrong format';
                 break;
             case 'ip':
                 validIp = value.match(/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/)
-                fieldValidationErrors.ip = validIp ? '' : 'is invalid';
+                fieldValidationErrors.ip = validIp ? '' : 'Ip adress wrong format';
                 break;
             default:
                 break;
@@ -54,37 +53,11 @@ export default class AuthSignUp extends Component {
         }, this.validateForm)
     }
 
-
-
     validateForm() {
         this.setState({ formValid: this.state.validEmail && this.state.validNickname && this.state.validIp })
     }
 
     render() {
-
-        
-        /* 
-                // eslint-disable-next-line no-lone-blocks
-                {Object.keys(this.state.formErrors).map((fieldName, i) => {
-                    if (this.state.formErrors[fieldName].length > 0) {
-                    console.log(fieldName)
-                        if (fieldName === "nickname") {
-                            this.setState({
-                                errorNickname: true
-                            })
-                            } else if (fieldName === "email") {
-                                this.setState({
-                                    errorEmail: true
-                                })
-                        } else {
-                            this.setState({
-                                errorIp: true
-                            })
-                         }
-                         
-                    } else { return '';}
-                })};
-         */
 
         return (
             <div className='signup-container'>
@@ -98,8 +71,9 @@ export default class AuthSignUp extends Component {
                                     <input
                                         id="nickname"
                                         onChange={(e) => this.onChangeHandler(e)}
+                                        style={{ borderBottom: this.state.validNickname === null ? "1px solid red" : "1px solid black" }}
                                     />
-                                    <p> {this.state.validNickname} </p>
+                                    <p> {this.state.formErrors.nickname} </p>
                                 </div>
                             </div>
 
@@ -109,8 +83,9 @@ export default class AuthSignUp extends Component {
                                     <input
                                         id="email"
                                         onChange={(e) => this.onChangeHandler(e)}
+                                        style={{ borderBottom: this.state.validEmail === null ? "1px solid red" : "1px solid black" }}
                                     />
-                                    <p> Wrong Email format </p>
+                                    <p> {this.state.formErrors.email}</p>
                                 </div>
                             </div>
 
@@ -120,8 +95,9 @@ export default class AuthSignUp extends Component {
                                     <input
                                         id="ip"
                                         onChange={(e) => this.onChangeHandler(e)}
+                                        style={{ borderBottom: this.state.validIp === null ? "1px solid red" : "1px solid black" }}
                                     />
-                                    <p> Wrong Ip adress format </p>
+                                    <p> {this.state.formErrors.ip}</p>
                                 </div>
                             </div>
                         </form>

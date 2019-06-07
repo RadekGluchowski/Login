@@ -27,11 +27,14 @@
 
                  input{
                      border: none;
-                     border-bottom: 1px solid black;
                      margin: 1rem 0;
                  }
                  input:focus {
                      outline: none;
+                 }
+                 p{
+                     margin: 1rem;
+                     color: #fe4c8d
                  }
                 }
              }
