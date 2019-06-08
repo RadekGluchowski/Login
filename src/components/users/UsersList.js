@@ -12,10 +12,10 @@ class UsersList extends Component {
             itemsSorted: null
         }
     }
+
     render() {
 
         this.state.itemsSorted = this.props.items
-        console.log(this.state.itemsSorted)
 
         if (this.state.itemsSorted.length !== 0) {
 
@@ -49,7 +49,6 @@ class UsersList extends Component {
         }
     }
 }
-
 
 const mapStateToProps = (state) => ({
     items: state.loginAppReducer.users

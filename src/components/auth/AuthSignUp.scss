@@ -10,8 +10,7 @@
          .inputs-container{
              display: flex;
              flex-flow: column nowrap;
-
-                
+   
              .input-container{
                  display: flex;
                  flex-flow: column nowrap;
@@ -52,7 +51,6 @@
                  border-radius: 150px;
                  height: 2.5rem;
                  width: 6rem;
-
              }
              button:focus {
                  outline: none;
@@ -64,7 +62,6 @@
              button:disabled{
                 opacity: 0.5;
                 cursor: none;
-
              }
         }
     }

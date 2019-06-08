@@ -3,13 +3,9 @@ import { saveUserToStore } from '../../store/Actions/loginAppActions'
 import connect from 'react-redux/es/connect/connect';
 import './AuthSignUp.scss';
 
-
 class AuthSignUp extends Component {
     constructor(props) {
         super(props)
-
-
-
 
         this.state = {
             id: 1,
@@ -92,23 +88,15 @@ class AuthSignUp extends Component {
                 btnDisabled: true,
             })
         } else { }
-
     }
 
-
     render() {
-
-
         const sameNameFinder = this.props.items.find(item => item.NAME === this.state.nickname)
         if (sameNameFinder !== undefined) {
             this.state.nickNameError = true;
         } else {
             this.state.nickNameError = false;
         }
-
-
-
-
 
         return (
             <div className='signup-container'>

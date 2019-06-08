@@ -8,15 +8,15 @@ export function loginAppReducer(state = initialState, action) {
     switch (action.type) {
         case loginAppActions.SAVE_USER_TO_STORE: {
             return {
-            ...state,
-            users: [...state.users, action.payload] 
+                ...state,
+                users: [...state.users, action.payload]
             }
         }
         case loginAppActions.DELETE_USER_FROM_STORE: {
-           /*   const User = state.users.find(item => item.id === action.payload)  */   
+
             return {
                 ...state,
-                users: state.users.filter(item =>  item.ID !== action.payload)
+                users: state.users.filter(item => item.ID !== action.payload)
             }
         }
         case loginAppActions.DELETE_ALL_USERS: {
