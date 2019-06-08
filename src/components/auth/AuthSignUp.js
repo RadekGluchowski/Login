@@ -106,7 +106,6 @@ class AuthSignUp extends Component {
         } else {
             this.state.nickNameError = false;
         }
-        console.log(this.state.id)
 
 
 

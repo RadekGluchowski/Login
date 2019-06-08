@@ -18,7 +18,7 @@ class UsersList extends Component {
                                 <th> Nickname </th>
                                 <th> Email </th>
                                 <th> IP adress </th>
-                                <th> <button onClick={() => {this.props.delete(this.props.items.ID)}}> Delete All </button></th>
+                                <th> <button onClick={() => { if (window.confirm(" this will delete the whole list, are you sure you want DELETE ALL ITEMS ? ")) this.props.delete(this.props.items.ID)}}> Delete All </button></th>
                             </tr>
                             {items.map((data, index) =>{
                                 return (<Users key={index}

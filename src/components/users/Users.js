@@ -12,7 +12,7 @@ class Users extends Component {
                 <td>{this.props.data.NAME}</td>
                 <td>{this.props.data.EMAIL}</td>
                 <td>{this.props.data.IP}</td>
-                <td> <button onClick={() => {this.props.delete(this.props.data.ID)}}> X </button></td>
+                <td> <button onClick={() => { if (window.confirm(" Are you sure you wish to delete this item ? ")) this.props.delete(this.props.data.ID)}}> X </button></td>
             </tr>
         );
     }
