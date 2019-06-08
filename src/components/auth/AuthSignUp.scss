@@ -1,0 +1,68 @@
+.signup-container{
+    display: flex;
+    flex-flow: row;
+
+    .login-form{
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+
+         .inputs-container{
+             display: flex;
+             flex-flow: column nowrap;
+   
+             .input-container{
+                 display: flex;
+                 flex-flow: column nowrap;
+
+                 span{
+                    opacity: 0.5
+                }
+
+                 .input{
+                    display: flex;
+                    flex-flow: row;
+                    width: 100%;
+
+                 input{
+                     border: none;
+                     margin: 1rem 0;
+                     width: 40%;
+                 }
+                 input:focus {
+                     outline: none;
+                 }
+                 p{
+                     margin: 1rem;
+                     color: #fe4c8d
+                 }
+                }
+             }
+         }
+         .btn-add{
+             margin: 1rem 0;
+
+             button{
+                 color: #ffff;
+                 border: none;
+                 background-color: rgb(99, 233, 166);
+                 -webkit-border-radius: 150px;
+                 -moz-border-radius: 150px;
+                 border-radius: 150px;
+                 height: 2.5rem;
+                 width: 6rem;
+             }
+             button:focus {
+                 outline: none;
+             }
+             button:hover {
+                 cursor: pointer;
+                 opacity: 0.8;
+             }
+             button:disabled{
+                opacity: 0.5;
+                cursor: none;
+             }
+        }
+    }
+}
