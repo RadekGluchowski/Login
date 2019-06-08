@@ -12,7 +12,6 @@ class AuthSignUp extends Component {
 
 
         this.state = {
-            items: this.props.items,
             id: 1,
             nickname: "",
             email: "",
